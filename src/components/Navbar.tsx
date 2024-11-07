@@ -45,10 +45,10 @@ const Navbar = () => {
       </div>
       <div className="md:mr-12 mr-8 flex gap-8">
         <Link to={"/products"}>
-          <span className="text-primary md:text-md text-sm">Products</span>
+          <span className="text-primary md:text-md text-sm hover:text-secondary">Products</span>
         </Link>
         <Link to={"/cart"}>
-          <ShoppingBag className="cursor-pointer" color="black" />
+          <ShoppingBag className="cursor-pointer  hover:text-secondary" />
         </Link>
         <div className="relative">
           {currentUser ? (
@@ -64,7 +64,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <UserIcon onClick={handleIconClick} className="cursor-pointer" color="black" />
+              <UserIcon onClick={handleIconClick} className="cursor-pointer  hover:text-secondary" />
               {menuOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2">
                   <button onClick={handleLogin} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">

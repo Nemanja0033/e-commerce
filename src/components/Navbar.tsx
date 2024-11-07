@@ -1,13 +1,14 @@
-import { ShoppingBag } from "lucide-react"
+import { ShoppingBag, UserIcon } from "lucide-react"
 
 const Navbar = () => {
   return (
-    <nav className="w-full bg-white border-b h-[50px] flex justify-between items-center">
-        <div className="ml-12">
-            <h1 className="text-3xl text-primary">m o d e.</h1>
+    <nav className="w-full bg-black  h-[50px] flex justify-between items-center">
+        <div className="md:ml-12 ml-8">
+            <h1 className="text-3xl text-white cursor-pointer">m o d e.</h1>
         </div>
-        <div className="mr-12">
-            <ShoppingBag color="black" />
+        <div className="md:mr-12 mr-8 flex gap-8">
+            <ShoppingBag className="cursor-pointer" color="white" />
+            <UserIcon  className="cursor-pointer" color="white" />
         </div>
     </nav>
   )

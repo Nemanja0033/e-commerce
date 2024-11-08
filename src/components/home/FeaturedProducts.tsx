@@ -8,9 +8,11 @@ export const FeaturedMensProducts = () => {
         <div className="mt-8">
         <div className="md:ml-6 md:flex flex-row m-auto justify-center">
         {data.map((item) => (
-            <ProductCard title={item.title}
+            <ProductCard 
+                         key={item.id}
+                         title={item.title}
                          price={item.price}
-                         id={item.price}
+                         id={item.id}
                          image={item.image} />
         ))}
         </div>
@@ -34,9 +36,11 @@ const FeaturedProducts = () => {
             <div>
                 <div className="md:ml-6 md:flex flex-row m-auto justify-center">
                 {data.map((item) => (
-                    <ProductCard title={item.title}
+                    <ProductCard
+                                 key={item.id}
+                                 title={item.title}
                                  price={item.price}
-                                 id={item.price}
+                                 id={item.id}
                                  image={item.image} />
                 ))}
                 </div>

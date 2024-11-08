@@ -1,7 +1,10 @@
+import FilterSearch from "../components/products/FilterSearch"
 
 const Products = () => {
   return (
-    <div>Products</div>
+    <div>
+      <FilterSearch />
+    </div>
   )
 }
 

@@ -1,3 +1,4 @@
+import { ArrowDown } from "lucide-react";
 import useImagesChanger from "../../custom hooks/useImagechanger";
 
 const Hero = () => {
@@ -15,7 +16,7 @@ const Hero = () => {
             <p className="text-gray-400 md:text-xl text-md tracking-widest text-center">`New collecion is out now` </p>
         </div>
         <div className="flex justify-center items-center mt-6">
-          <a href="#featured" className="underline text-xl">Explore Collections</a>
+          <a href="#featured" className="text-xl flex items-center">Explore Collections <ArrowDown /></a>
         </div>
        
       </div>

@@ -45,21 +45,21 @@ const CartContext = createContext<{
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, dispatch] = useReducer(cartReducer, initialState);
-  const { currentUser } = useAuth();
+  const { currentUser  } = useAuth();
 
   useEffect(() => {
     const fetchCart = async () => {
-      if (currentUser) {
+      if (currentUser ) {
         try {
-          console.log("Fetching cart for user:", currentUser.uid);
-          const cartRef = doc(collection(firestore, 'carts'), currentUser.uid);
+          console.log("Fetching cart for user:", currentUser .uid);
+          const cartRef = doc(collection(firestore, 'carts'), currentUser .uid);
           const cartSnap = await getDoc(cartRef);
           if (cartSnap.exists()) {
             const items = cartSnap.data().items || [];
             console.log("Fetched cart items from Firestore:", items);
             dispatch({ type: 'SET_CART', payload: items });
           } else {
-            console.log("No cart found for user:", currentUser.uid);
+            console.log("No cart found for user:", currentUser .uid);
             dispatch({ type: 'SET_CART', payload: [] });
           }
         } catch (error) {
@@ -70,14 +70,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       }
     };
     fetchCart();
-  }, [currentUser]);
+  }, [currentUser ]);
 
   useEffect(() => {
     const saveCart = async () => {
-      if (currentUser) {
+      if (currentUser ) {
         try {
           console.log("Saving cart items to Firestore:", cart);
-          const cartRef = doc(collection(firestore, 'carts'), currentUser.uid);
+          const cartRef = doc(collection(firestore, 'carts'), currentUser .uid);
           await setDoc(cartRef, { items: cart });
         } catch (error) {
           console.error("Error saving cart:", error);
@@ -85,7 +85,18 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       }
     };
     saveCart();
-  }, [cart, currentUser]);
+  }, [cart, currentUser ]);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      dispatch({ type: 'SET_CART', payload: JSON.parse(savedCart) });
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <CartContext.Provider value={{ cart, dispatch }}>

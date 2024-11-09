@@ -7,7 +7,7 @@ export const FeaturedMensProducts = () => {
     return(
         <div className="mt-8">
         <div className="md:ml-6 md:flex flex-row m-auto justify-center">
-        {data.map((item) => (
+        {data.map((item: { id: number; title: string; price: number; image: string }) => (
             <ProductCard 
                          key={item.id}
                          title={item.title}
@@ -35,7 +35,7 @@ const FeaturedProducts = () => {
             </div>
             <div>
                 <div className="md:ml-6 md:flex flex-row m-auto justify-center">
-                {data.map((item) => (
+                {data.map((item: { id: number; title: string; price: number; image: string }) => (
                     <ProductCard
                                  key={item.id}
                                  title={item.title}

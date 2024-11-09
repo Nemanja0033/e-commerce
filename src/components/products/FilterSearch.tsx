@@ -7,7 +7,7 @@ const Products = () => {
 
     return(
         <div className="md:flex flex-row m-auto">
-            {data.map((product: { title: string; price: string; id: string; image: string; }) => (
+            {data.map((product: { title: string; price: number; id: number; image: string; }) => (
                 <ProductCard title={product.title}
                              price={product.price}
                              id={product.id}

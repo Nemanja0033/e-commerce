@@ -7,7 +7,7 @@ const Products = () => {
 
     return(
         <div className="md:flex flex-row m-auto">
-            {data.map((product) => (
+            {data.map((product: { title: string; price: string; id: string; image: string; }) => (
                 <ProductCard title={product.title}
                              price={product.price}
                              id={product.id}
@@ -22,16 +22,16 @@ const FilterSearch = () => {
   const { data } = useFetch('https://fakestoreapi.com/products/categories');
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
 
-  const getCategory = async (category: any) => {
+  const getCategory = async (category: string) => {
     const response = await fetch(`https://fakestoreapi.com/products/category/${category}`);
     const products = await response.json();
     setFilteredProducts(products);
   };
 
   return (
-    <div className="flex flex-col items-center w-full mt-12">
+    <div className="flex flex-col items-center w-full mt-32 ">
       <div className="flex justify-center mb-4">
-        {data && data.map((category) => (
+        {data && data.map((category: string) => (
           <button
             key={category}
             onClick={() => getCategory(category)}

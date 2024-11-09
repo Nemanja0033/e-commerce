@@ -37,7 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-white h-[70px] flex justify-between items-center shadow-md ">
+    <nav className="w-full bg-white h-[70px] flex justify-between items-center shadow-md fixed top-0 left-0 z-50">
       <div className="md:ml-12 ml-8">
         <Link to={"/"}>
           <h1 className="md:text-3xl text-xl text-primary cursor-pointer">m o d e.</h1>

@@ -25,7 +25,7 @@ const FeaturedProducts = () => {
     const { data } = useFetch(`https://fakestoreapi.com/products/category/women's clothing`)
 
   return (
-    <div id="featured" className="w-full flex-row m-auto mt-12">
+    <div id="featured" className="w-full flex-row m-auto md:mt-32 mt-12">
         <div className="w-full flex-row m-auto mt-6">
             <div>
                 <h1 className="text-primary text-2xl md:ml-12">Featured Collections</h1>

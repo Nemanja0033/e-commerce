@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../custom hooks/useFetch";
 import { useCart } from '../context/cart/CartContext';
+import Footer from "../components/Footer";
 
 const SingleProduct = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,18 +15,23 @@ const SingleProduct = () => {
   console.log(data);
 
   return (
-    <div className="w-full md:flex flex-row justify-center items-center mt-12 gap-4">
+    <><div className="w-full md:flex flex-row justify-center items-center mt-12 gap-12">
       <div className="md:w-1/3 w-full md:m-0 m-auto md:h-[70vh] h-[60vh] md:mt-20 mt-32">
-        <img src={data.image} className="w-full h-full" alt={data.title} />
+        <img src={data.image} className="w-full h-full border" alt={data.title} />
       </div>
 
-      <div className="md:w-1/2 w-full md:mt-12 mt-12 flex-row">
+      <div className="md:w-1/2 w-full md:mt-32 mt-12 flex-row">
         <div className="flex justify-center">
           <h1 className="text-3xl text-center">{data.title}</h1>
+        </div>
+        <div className="flex justify-center mt-3">
+          <h1 className="text-2xl text-gray-400 text-center">{data.price}$</h1>
         </div>
         <div className="flex justify-center mt-6">
           <h1 className="md:text-md text-center text-gray-400">{data.description}</h1>
         </div>
+        <br />
+        <hr />
         <div className="flex justify-center mt-6">
           <a href="#" className="text-xl flex items-center text-primary" onClick={addToCart}>
             Add To Cart
@@ -33,6 +39,8 @@ const SingleProduct = () => {
         </div>
       </div>
     </div>
+    <Footer />
+  </>
   );
 };
 

@@ -1,5 +1,4 @@
 import { useCart } from '../../context/cart/CartContext';
-import ProductCard from '../_productsCard/ProductsCard';
 
 const CartContent = () => {
   const { cart, dispatch } = useCart();
@@ -7,27 +6,28 @@ const CartContent = () => {
   const totalPrice = cart.reduce((total: number, product: { price: number }) => total + product.price, 0);
 
   return (
-    <div className="w-full mt-20">
-      <h2>Your Cart</h2>
+    <div className="w-full mt-20 text-center">
       {cart.length === 0 ? (
-        <p>Your cart is empty</p>
+        <div className='md:mt-32 mt-72'>
+        <p className='md:text-md text-xl'>Your cart is empty</p>
+        <p>. . .</p>
+        <button className='mt-3 md:text-xl text-3xl'>Keep Shopping</button>
+        </div>
       ) : (
         cart.map((product: { id: number; title: string; price: number; image: string }) => (
-          <div key={product.id} className="cart-item">
-            <ProductCard
-              id={product.id}
-              title={product.title}
-              image={product.image}
-              price={product.price}
-            />
-            <button onClick={() => dispatch({ type: 'REMOVE_FROM_CART', payload: product })}>
-              Remove
-            </button>
+          <>
+          <div key={product.id} className="flex justify-between border h-[100px] items-center">
+           <div className='w-full h-[80px] bg-white mt-3 flex justify-evenly'>
+            <img className='' src={product.image} />
+            <h1 className='text-primary font-semibold text-center'>{product.title}</h1>
+            <h1 className='text-primary font-semibold text-center'>{product.price}$</h1>
+           </div>
           </div>
+          <h3 className='text-xl'>Total: ${totalPrice.toFixed(2)}</h3>
+          <button className='text-md' onClick={() => dispatch({ type: 'CLEAR_CART' })}>Clear Cart</button>
+          </>
         ))
       )}
-      <h3>Total: ${totalPrice.toFixed(2)}</h3>
-      <button onClick={() => dispatch({ type: 'CLEAR_CART' })}>Clear Cart</button>
     </div>
   );
 };

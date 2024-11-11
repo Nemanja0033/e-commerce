@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useCart } from '../../context/cart/CartContext';
 
 const CartContent = () => {
@@ -11,7 +12,9 @@ const CartContent = () => {
         <div className='md:mt-32 mt-72'>
         <p className='md:text-md text-xl'>Your cart is empty</p>
         <p>. . .</p>
-        <button className='mt-3 md:text-xl text-3xl'>Keep Shopping</button>
+        <Link to={'/products'}>
+            <button className='mt-3 md:text-xl text-3xl'>Keep Shopping</button>
+        </Link>
         </div>
       ) : (
         cart.map((product: { id: number; title: string; price: number; image: string }) => (

@@ -2,13 +2,9 @@ import React, { createContext, useReducer, useContext, ReactNode, useEffect } fr
 import { collection, doc, setDoc, getDoc } from "firebase/firestore";
 import { firestore } from '../../firebaseConfig';
 import { useAuth } from '../auth/AuthContext ';
+import { CartItem } from '../../type/CartType';
 
-interface CartItem {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-}
+
 
 type CartState = CartItem[];
 

@@ -28,7 +28,7 @@ const FeaturedProducts = () => {
     <div id="featured" className="w-full flex-row m-auto md:mt-32 mt-12">
         <div className="w-full flex-row m-auto mt-6">
             <div>
-                <h1 className="text-primary text-2xl md:ml-12">Featured Collections</h1>
+                <h1 className="text-primary text-2xl md:ml-12 md:text-start text-center">Featured Collections</h1>
             </div>
             <div>
                 <h1 className="text-gray-200 text-xl md:ml-12 text-center">For Her</h1>
